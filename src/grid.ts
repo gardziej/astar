@@ -68,8 +68,9 @@ export class Grid {
 
         currentSpot.neighbors.forEach((neighbor: Spot) => {
           if (this.closedSet.findIndex((spot: Spot) => spot.gp.x === neighbor.gp.x && spot.gp.y === neighbor.gp.y) === -1 && !neighbor.wall) {
-            let tempG: number = currentSpot.g + Math.sqrt(Math.pow(currentSpot.gp.x - neighbor.gp.x, 2) + Math.pow(currentSpot.gp.y - neighbor.gp.y, 2));
-            let betterPath: boolean = false;            
+            // let tempG: number = currentSpot.g + Math.sqrt(Math.pow(currentSpot.gp.x - neighbor.gp.x, 2) + Math.pow(currentSpot.gp.y - neighbor.gp.y, 2));
+            let tempG: number = currentSpot.g + 1;
+            let betterPath: boolean = false;
             if (this.openSet.findIndex((spot: Spot) => spot.gp.x === neighbor.gp.x && spot.gp.y === neighbor.gp.y) > -1) {
               if (tempG < neighbor.g) {
                 neighbor.g = tempG;
@@ -81,7 +82,8 @@ export class Grid {
               this.openSet.push(neighbor);
             }
             if (betterPath) {
-              neighbor.h = Math.sqrt(Math.pow(this.end.gp.x - neighbor.gp.x, 2) + Math.pow(this.end.gp.y - neighbor.gp.y, 2));
+              // neighbor.h = Math.sqrt(Math.pow(this.end.gp.x - neighbor.gp.x, 2) + Math.pow(this.end.gp.y - neighbor.gp.y, 2));
+              neighbor.h = Math.abs(this.end.gp.x - neighbor.gp.x) + Math.abs(this.end.gp.y - neighbor.gp.y);
               neighbor.f = neighbor.g + neighbor.h;
               neighbor.previous = currentSpot;
             }

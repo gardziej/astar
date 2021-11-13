@@ -30,7 +30,7 @@ class App {
       this.options['spotSize'] = 100;
     }
     else {
-      this.options['spotSize'] = 5;
+      this.options['spotSize'] = 10;
     }
     this.grid = new Grid({x: this.renderer.renderer.options.width / this.options['spotSize'], y: this.renderer.renderer.options.height / this.options['spotSize']}, this.renderer, this.options);
     this.fpsText = new TextLine('', 10, 10, {fontFamily : 'Arial', fontSize: 24, fill : 0xffffff, align : 'center'}, this.renderer);
