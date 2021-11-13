@@ -1,0 +1,26 @@
+{
+  "name": "astar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "rimraf dist/* && cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.0.0",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "pixi.js": "^6.0.0",
+    "rxjs": "^6.6.6"
+  }
+}
